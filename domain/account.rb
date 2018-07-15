@@ -10,14 +10,11 @@ class Account
     @balance = balance
   end
 
-  def to_json
-    to_h.to_json
+  def add_amount(amount)
+    @balance = @balance + amount
   end
 
-  def to_h
-    {
-      id: @id,
-      balance: @balance
-    }
+  def subtract_amount(amount)
+    @balance = @balance - amount
   end
 end

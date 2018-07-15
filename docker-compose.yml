@@ -24,4 +24,11 @@ services:
       - MYSQL_DATABASE=bank
       - MYSQL_USER=bank_api
       - MYSQL_PASSWORD=capalbo
-
+  app:
+    image: phpmyadmin/phpmyadmin:latest
+    links:
+      - db
+    ports:
+      - 80:80
+    environment:
+      - PMA_ARBITRARY=1

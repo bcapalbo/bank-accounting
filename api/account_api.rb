@@ -12,9 +12,11 @@ class AccountApi < BaseApi
     }
   end
 
-  post '/:id/transfer' do |id|
-    {
-      'teste': params[:id]
-    }
+  post '/:souce_account_id/transfer' do |souce_account_id|
+    status(201) unless @account_service.transfer(
+      souce_account_id,
+      params[:destination_account_id],
+      params[:amount]
+    )
   end
 end

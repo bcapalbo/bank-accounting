@@ -1,6 +1,5 @@
 require 'json'
 require 'sinatra'
-require 'sinatra/param'
 require 'sinatra/base'
 require 'sinatra/reloader' if development?
 
