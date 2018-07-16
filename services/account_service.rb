@@ -1,6 +1,6 @@
 require_relative '../repository/account_repository'
+require_relative '../exception/destination_account_does_not_exists'
 require_relative '../exception/not_enough_money'
-require 'sinatra/reloader' if development?
 
 class AccountService
   def initialize(account: AccountRepository.new)
@@ -18,7 +18,11 @@ class AccountService
 
     raise NotEnoughMoney unless source_account.balance >= amount
 
-    destination_account = @account_repository.find(destination_account_id)
+    begin
+      destination_account = @account_repository.find(destination_account_id)
+    rescue AccountNotFound
+      raise DestinationAccountDoesNotExists.new
+    end
 
     source_account.create_debit(amount)
     destination_account.create_credit(amount)

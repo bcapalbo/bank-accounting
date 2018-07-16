@@ -1,0 +1,2 @@
+class DestinationAccountDoesNotExists < Exception
+end
