@@ -14,6 +14,7 @@ class AccountService
   end
 
   def transfer(source_account_id, destination_account_id, amount)
+    amount = amount.to_f
     source_account = @account_repository.find(source_account_id)
 
     raise NotEnoughMoney unless source_account.balance >= amount

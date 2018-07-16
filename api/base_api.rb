@@ -11,4 +11,11 @@ class BaseApi < Sinatra::Application
     "Content-Type" => "application/json"
     response.body = response.body ? response.body.to_json : nil
   end
+
+  error 404 do
+    status(404)
+    {
+      'message': 'Resource not found'
+    }
+  end
 end
