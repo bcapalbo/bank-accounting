@@ -11,20 +11,21 @@ class AccountApi < BaseApi
   end
 
   get '/:id/balance' do |id|
+    param :id, Integer, required: true, message: 'Account id is required and should be Integer'
     {
       'balance': @account_service.get_balance(id)
     }
   end
 
   post '/:souce_account_id/transfer' do |souce_account_id|
-    param :destination_account_id, String, required: true, message: 'Destination account id is required'
-    param :amount, String, required: true, message: 'Amount is required'
-    status(201)
+    param :destination_account_id, Integer, required: true, message: 'Destination account id is required and should be Integer'
+    param :amount, Float, required: true, message: 'Amount is required and should be Float'
     @account_service.transfer(
       souce_account_id,
       params[:destination_account_id],
       params[:amount]
     )
+    status(201)
   end
 
   error AccountNotFound do
@@ -41,7 +42,7 @@ class AccountApi < BaseApi
     }
   end
 
-    error DestinationAccountDoesNotExists do
+  error DestinationAccountDoesNotExists do
     status(404)
     {
       'message': 'Destination account does not exist'

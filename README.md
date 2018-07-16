@@ -68,6 +68,9 @@ $ ./start.sh
 
 **2**. Use a web browser and access the following url: `http://localhost:3000/v1/`
 
+**Or**
+
+Click here -> [API doc](docs/api_docs.markdown)
 
 ## Built With
 
