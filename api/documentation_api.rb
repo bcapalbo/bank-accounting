@@ -1,3 +1,4 @@
+require 'rdiscount'
 require 'sinatra'
 
 class DocumentationApi < Sinatra::Application

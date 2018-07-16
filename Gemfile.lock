@@ -17,6 +17,7 @@ GEM
       rack (~> 2.0)
     rack-protection (2.0.1)
       rack
+    rdiscount (2.2.0.1)
     rr (1.2.1)
     simplecov (0.16.1)
       docile (~> 1.1)
@@ -64,6 +65,7 @@ DEPENDENCIES
   mocha
   mysql2
   rack-contrib
+  rdiscount
   simplecov
   sinatra
   sinatra-contrib

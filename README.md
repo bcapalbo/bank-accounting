@@ -32,6 +32,10 @@ cp .env.example .env
 $ ./start.sh --build
 ```
 
+### Migrations
+
+In order to make developers live easier, this project will run some migrations (can be found and updated at `db/migrate`) that will creates the table used on application and populate it with some test data each time the database container is restarted.
+
 ### Running UnitTests
 
 To run locally unit tests of this project, just follow this step:
@@ -44,6 +48,13 @@ $ ./run_unit_tests.sh
 To be able to use `byebug` debugger, you will need to use debugging configuration following this step:
 ```
 $ ./debug.sh
+```
+
+### Shutdown application
+
+To shutdown the aplication, just run this following command:
+```
+$ docker-compose down
 ```
 
 ## Built With

@@ -4,6 +4,7 @@ gem 'sinatra'
 gem 'mysql2'
 gem 'rack-contrib'
 gem 'sinatra-param', require: "sinatra/param"
+gem 'rdiscount'
 
 group :development do
   gem 'test-unit-full'
