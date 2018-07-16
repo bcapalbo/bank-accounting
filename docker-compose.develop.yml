@@ -12,8 +12,6 @@ services:
     command: rackup -p 3000 --host 0.0.0.0
     depends_on:
       - db
-    stdin_open: true
-    tty: true
 
   db:
     image: mysql:5.6

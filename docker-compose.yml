@@ -10,17 +10,3 @@ services:
     env_file:
       - .env
     command: rackup -p 3000 --host 0.0.0.0
-    depends_on:
-      - db
-    stdin_open: true
-    tty: true
-
-  db:
-    image: mysql:5.6
-    ports:
-      - "3306:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=admin
-      - MYSQL_DATABASE=bank
-      - MYSQL_USER=bank_api
-      - MYSQL_PASSWORD=capalbo
