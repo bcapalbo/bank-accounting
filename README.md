@@ -57,6 +57,18 @@ To shutdown the aplication, just run this following command:
 $ docker-compose down
 ```
 
+## Using this API
+
+To access API utilization documentation, follow these steps:
+
+**1**. Start application.
+```
+$ ./start.sh
+```
+
+**2**. Use a web browser and access the following url: `http://localhost:3000/v1/`
+
+
 ## Built With
 
 * [Ruby 2.6](https://www.ruby-lang.org/pt/)
