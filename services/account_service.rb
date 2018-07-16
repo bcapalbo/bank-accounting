@@ -3,8 +3,8 @@ require_relative '../exception/destination_account_does_not_exists'
 require_relative '../exception/not_enough_money'
 
 class AccountService
-  def initialize(account: AccountRepository.new)
-    @account_repository = account;
+  def initialize(account_repository: AccountRepository.new)
+    @account_repository = account_repository;
   end
 
   def get_balance(id)

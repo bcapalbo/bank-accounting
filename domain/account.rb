@@ -17,4 +17,11 @@ class Account
   def create_debit(amount)
     @balance = @balance - amount
   end
+
+  def to_h
+    {
+      id: @id,
+      balance: @balance
+    }
+  end
 end
