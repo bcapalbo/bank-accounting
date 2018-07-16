@@ -20,14 +20,14 @@ class AccountRepository
     Account.new(id: result['id'], balance: result['balance'])
   end
 
-  def update_account_balance(id, balance)
+  def update_account_balance(account)
     @database.client.query("""
       UPDATE
         #{@table}
       SET
-        balance = #{balance}
+        balance = #{account.balance}
       WHERE
-        #{@table}.id = #{id}"""
+        #{@table}.id = #{account.id}"""
     )
   end
 end

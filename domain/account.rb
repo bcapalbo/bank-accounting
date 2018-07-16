@@ -10,11 +10,11 @@ class Account
     @balance = balance
   end
 
-  def add_amount(amount)
+  def create_credit(amount)
     @balance = @balance + amount
   end
 
-  def subtract_amount(amount)
+  def create_debit(amount)
     @balance = @balance - amount
   end
 end
