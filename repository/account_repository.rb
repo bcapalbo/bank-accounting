@@ -1,5 +1,6 @@
 require_relative '../domain/account'
 require_relative '../infra/bank_database'
+require_relative '../exception/account_not_found'
 
 class AccountRepository
   def initialize(database: nil)
@@ -16,6 +17,8 @@ class AccountRepository
       WHERE
         #{@table}.id = #{id}"""
     ).first
+
+    raise AccountNotFound.new unless result
 
     Account.new(id: result['id'], balance: result['balance'])
   end

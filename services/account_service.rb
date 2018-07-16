@@ -1,4 +1,6 @@
 require_relative '../repository/account_repository'
+require_relative '../exception/not_enough_money'
+require 'sinatra/reloader' if development?
 
 class AccountService
   def initialize(account: AccountRepository.new)
@@ -13,6 +15,9 @@ class AccountService
 
   def transfer(source_account_id, destination_account_id, amount)
     source_account = @account_repository.find(source_account_id)
+
+    raise NotEnoughMoney unless source_account.balance >= amount
+
     destination_account = @account_repository.find(destination_account_id)
 
     source_account.create_debit(amount)
